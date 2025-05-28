@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pré-Selecionados - Pré-Vestibular Esperançar</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f8ff;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #3498db;
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .controls input, .controls select, .controls button {
+      padding: 10px 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    .controls input {
+      width: 250px;
+    }
+    .controls select {
+      min-width: 200px;
+    }
+    .controls button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background-color: #2980b9;
+    }
+    #candidatos {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .nome {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .forma-entrada {
+      background-color: #3498db;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .info {
+      margin-bottom: 8px;
+      display: flex;
+    }
+    .info-label {
+      font-weight: bold;
+      min-width: 120px;
+      color: #7f8c8d;
+    }
+    .info-value {
+      flex: 1;
+    }
+    .Reserva-Transgênero .forma-entrada {
+      background-color: #9b59b6;
+    }
+    .Reserva-Negra-Parda .forma-entrada {
+      background-color: #e67e22;
+    }
+    .Ampla-Concorrência .forma-entrada {
+      background-color: #27ae60;
+    }
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+      .controls {
+        display: none;
+      }
+      .card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+      }
+    }
+    @media (max-width: 768px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .controls input, .controls select, .controls button {
+        width: 100%;
+      }
+      .info {
+        flex-direction: column;
+      }
+      .info-label {
+        margin-bottom: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Pré-Selecionados - Pré-Vestibular Esperançar</h1>
+
+  <div class="controls">
+    <input type="text" id="busca" placeholder="Buscar por nome..." onkeyup="filtrar()">
+    <select id="filtro" onchange="filtrar()">
+      <option value="">Todas as formas de entrada</option>
+      <option value="Reserva Transgênero">Reserva Transgênero</option>
+      <option value="Reserva Negra/Parda">Reserva Negra/Parda</option>
+      <option value="Ampla Concorrência">Ampla Concorrência</option>
+    </select>
+    <button onclick="window.print()">Imprimir Lista</button>
+  </div>
+
+  <div id="candidatos">
+    <!-- Candidato 1 -->
+    <div class="card Reserva-Transgênero" data-nome="Max Jardim da Silva Fonseca" data-forma="Reserva Transgênero">
+      <div class="nome">
+        Max Jardim da Silva Fonseca
+        <span class="forma-entrada">Reserva Transgênero</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 99212-0401</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">maxjsfonseca@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">11/04/2007 (18 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">061.646.610-21</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">7144243503</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Rua luiz mercio teixeira 1632</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 2 -->
+    <div class="card Reserva-Transgênero" data-nome="Kay de Castro Cuña" data-forma="Reserva Transgênero">
+      <div class="nome">
+        Kay de Castro Cuña
+        <span class="forma-entrada">Reserva Transgênero</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">55 98427-2992</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">kaydecastro24@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Gravataí RS</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">24/09/2003 (21 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">045.693.910-52</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">1134210986</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">São José, 317, Getúlio Vargas</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">Ensino Médio completo</span></div>
+    </div>
+
+    <!-- Candidato 3 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Lidiane Alves Corrêa" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Lidiane Alves Corrêa
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 99922-4150</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">Correaalveslidiane7@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">02/02/1981 (44 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">2277786084</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">1080424201</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Ildefonso pegas 2975 ap 304 são Lourenço 1</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">Ensino Médio completo</span></div>
+    </div>
+
+    <!-- Candidato 4 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Kauã dos Santos Jacintos" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Kauã dos Santos Jacintos
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 991631316</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">kauadossantosjacintos01@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">(125 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">6828530039</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Bairro Ivo Ferronato - 601 - Rua 171</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 5 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Kimberllyn Victóry Jardim Alves" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Kimberllyn Victóry Jardim Alves
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">55 997256653</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">kimberllyna@545@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">04/10/2007 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">3210217033</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 6 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Vitória Francisca Gonçalves Paiva" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Vitória Francisca Gonçalves Paiva
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">(53)991277002</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">vitoriagpaiva23@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé-RS</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">30/03/2005 (20 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">6050446008</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">1133385541</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Bairro Ivone,Rua Mário Mércio da Silveira,663</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">Ensino Médio completo</span></div>
+    </div>
+
+    <!-- Candidato 7 -->
+    <div class="card Reserva-Negra-Parda" data-nome="João Gabriel Corre Ramires" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        João Gabriel Corre Ramires
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 997039828</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">20/08/2007 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">5666577085</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">3136055815</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Residencial Creorami</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 8 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Ester Silveira Ferreira" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Ester Silveira Ferreira
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 984482498</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">08/01/2008 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">064.115.750-96</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Comandando Vililucas Soua Pinto 356</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 9 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Guilherme Rios de Oliveira" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Guilherme Rios de Oliveira
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">55 53 991252289</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">guilhermerios2004@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">17/06/2004 (20 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">5920037016</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">1113455259</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Rua Acrísio Jacinto Pereira, 76 , floresta</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">Ensino Médio completo</span></div>
+    </div>
+
+    <!-- Candidato 10 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Lisara Silva Miranda" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Lisara Silva Miranda
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Nome Social:</span><span class="info-value">Chamaria</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">05/09/2005 (19 anos)</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Rua Rau Danazar 901</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 11 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Rayssa Machado Franco" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Rayssa Machado Franco
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">(53) 99979-2785</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">Rayssafranco385@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">15/07/2005 (19 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">055.143.910-60</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">4142098021</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Rua Fernando abbot 771 passo das pedras</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º Ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 12 -->
+    <div class="card Reserva-Negra-Parda" data-nome="Eduarda Pacheco Machado Ramires" data-forma="Reserva Negra/Parda">
+      <div class="nome">
+        Eduarda Pacheco Machado Ramires
+        <span class="forma-entrada">Reserva Negra/Parda</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 999759616</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">eduardapacheco565@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">29/10/2005 (19 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">6810619011</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Nelson Machado 640</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 13 -->
+    <div class="card Ampla-Concorrência" data-nome="André Sandim Ferreira" data-forma="Ampla Concorrência">
+      <div class="nome">
+        André Sandim Ferreira
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 997125746</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">andre.sandim.ferreira@escola.rs.gov.br</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">24/04/2008 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">3557679020</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 14 -->
+    <div class="card Ampla-Concorrência" data-nome="Rafaela Silva Cunha" data-forma="Ampla Concorrência">
+      <div class="nome">
+        Rafaela Silva Cunha
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 991976161</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">6925998007</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Castro Alves</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 15 -->
+    <div class="card Ampla-Concorrência" data-nome="Lucas D'Ávila Soares Robaina" data-forma="Ampla Concorrência">
+      <div class="nome">
+        Lucas D'Ávila Soares Robaina
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 999986090</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">Luanadavilarobaina@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">28/04/2008 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">070.286.930-90</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Rua dos sargentos 141</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 16 -->
+    <div class="card Ampla-Concorrência" data-nome="Bianca Valéria Goulart" data-forma="Ampla Concorrência">
+      <div class="nome">
+        Bianca Valéria Goulart
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53997023079</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">07/01/2008 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">039.959.660-71</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 17 -->
+    <div class="card Ampla-Concorrência" data-nome="José Otávio Visques Silva" data-forma="Ampla Concorrência">
+      <div class="nome">
+        José Otávio Visques Silva
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53 981180877</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">joseotaviovasquessil@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">15/02/2008 (17 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">5673668040</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">R Pedro Waine 990</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 18 -->
+    <div class="card Ampla-Concorrência" data-nome="Mariane Barboza" data-forma="Ampla Concorrência">
+      <div class="nome">
+        Mariane Barboza
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53999250632</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">marianegarciabarboza@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">27/05/2007 (18 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">5641473030</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">2130729292</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">338, casa 462, Mingote Paiva</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">3º ano do Ensino Médio</span></div>
+    </div>
+
+    <!-- Candidato 19 -->
+    <div class="card Ampla-Concorrência" data-nome="Êmily de Oliveira Lopes" data-forma="Ampla Concorrência">
+      <div class="nome">
+        Êmily de Oliveira Lopes
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53991281651</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">e.oliveira.lopes2015@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">04/06/2005 (19 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">4932425031</span></div>
+      <div class="info"><span class="info-label">RG:</span><span class="info-value">8134008104</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Rua Zeferino Gomes de Freitas, Bairro Castro Alves, número 60</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">Ensino Médio completo</span></div>
+    </div>
+
+    <!-- Candidato 20 -->
+    <div class="card Ampla-Concorrência" data-nome="Vitória Martins Pereira Colman" data-forma="Ampla Concorrência">
+      <div class="nome">
+        Vitória Martins Pereira Colman
+        <span class="forma-entrada">Ampla Concorrência</span>
+      </div>
+      <div class="info"><span class="info-label">Telefone:</span><span class="info-value">53997124879</span></div>
+      <div class="info"><span class="info-label">E-mail:</span><span class="info-value">Vitoriampcolman@gmail.com</span></div>
+      <div class="info"><span class="info-label">Naturalidade:</span><span class="info-value">Bagé</span></div>
+      <div class="info"><span class="info-label">Data Nasc.:</span><span class="info-value">07/10/2006 (18 anos)</span></div>
+      <div class="info"><span class="info-label">CPF:</span><span class="info-value">042.157.230-27</span></div>
+      <div class="info"><span class="info-label">Endereço:</span><span class="info-value">Nely egas ribeiro, 110. Menino Deus.</span></div>
+      <div class="info"><span class="info-label">Escolaridade:</span><span class="info-value">Ensino Médio completo</span></div>
+    </div>
+  </div>
+
+  <script>
+    function filtrar() {
+      const busca = document.getElementById('busca').value.toLowerCase();
+      const forma = document.getElementById('filtro').value;
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const nome = card.getAttribute('data-nome').toLowerCase();
+        const formaEntrada = card.getAttribute('data-forma');
+
+        const mostrar = nome.includes(busca) && (forma === '' || forma === formaEntrada);
+        card.style.display = mostrar ? 'block' : 'none';
+      });
+    }
+
+    // Ordenar os cards por nome ao carregar a página
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('candidatos');
+      const cards = Array.from(container.querySelectorAll('.card'));
+      
+      cards.sort((a, b) => {
+        const nomeA = a.getAttribute('data-nome').toLowerCase();
+        const nomeB = b.getAttribute('data-nome').toLowerCase();
+        return nomeA.localeCompare(nomeB);
+      });
+      
+      // Limpar e reordenar os cards
+      container.innerHTML = '';
+      cards.forEach(card => container.appendChild(card));
+    });
+  </script>
+</body>
+</html>
